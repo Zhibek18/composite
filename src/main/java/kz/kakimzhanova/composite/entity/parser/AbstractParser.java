@@ -39,8 +39,6 @@ public abstract class AbstractParser {
             Component tmp;
             for (String str : strings) {
                 tmp = successor.chain(str);
-                //logger.log(Level.DEBUG, tmp);
-
                 component.add(tmp);
             }
         }catch (AddNotSupportedException e){
@@ -48,7 +46,7 @@ public abstract class AbstractParser {
         }
         return component;
     }
-    abstract public String[] parse (String s);
+    public abstract String[] parse (String s);
     private static class DefaultParser extends AbstractParser{
         private static DefaultParser defaultParser = new DefaultParser();
         private DefaultParser() {
@@ -60,7 +58,7 @@ public abstract class AbstractParser {
         }
 
         public String[] parse(String s){
-            return null;
+            return new String[0];
         }
     }
 

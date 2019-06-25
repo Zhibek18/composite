@@ -7,7 +7,7 @@ public class LexemeParser extends AbstractParser {
 
     @Override
     public String[] parse (String s) {
-        return null;
+        return new String[0];
     }
     @Override
     public Component chain(String s){
