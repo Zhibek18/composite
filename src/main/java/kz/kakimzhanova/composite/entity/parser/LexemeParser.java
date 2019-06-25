@@ -1,7 +1,7 @@
-package kz.kakimzhanova.parser.entity.parser;
+package kz.kakimzhanova.composite.entity.parser;
 
-import kz.kakimzhanova.parser.entity.Component;
-import kz.kakimzhanova.parser.entity.Lexeme;
+import kz.kakimzhanova.composite.entity.Component;
+import kz.kakimzhanova.composite.entity.Lexeme;
 
 public class LexemeParser extends AbstractParser {
 

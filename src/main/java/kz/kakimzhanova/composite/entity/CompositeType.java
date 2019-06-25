@@ -1,4 +1,4 @@
-package kz.kakimzhanova.parser.entity;
+package kz.kakimzhanova.composite.entity;
 
 public enum CompositeType {
     TEXT, PARAGRAPH, SENTENCE, LEXEME

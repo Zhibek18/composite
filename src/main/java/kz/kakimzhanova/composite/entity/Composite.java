@@ -1,6 +1,6 @@
-package kz.kakimzhanova.parser.entity;
+package kz.kakimzhanova.composite.entity;
 
-import kz.kakimzhanova.parser.util.IdGenerator;
+import kz.kakimzhanova.composite.util.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ public class Composite implements Component {
     private long id;
     private List<Component> components = new ArrayList<Component>();
     private CompositeType compositeType;
+
     public Composite(CompositeType compositeType){
         id = IdGenerator.generateCompositeId();
         this.compositeType = compositeType;

@@ -1,10 +1,10 @@
-package kz.kakimzhanova.parser.entity.parser;
+package kz.kakimzhanova.composite.entity.parser;
 
-import kz.kakimzhanova.parser.entity.Component;
-import kz.kakimzhanova.parser.entity.Composite;
-import kz.kakimzhanova.parser.entity.CompositeType;
-import kz.kakimzhanova.parser.exception.AddNotSupportedException;
-import kz.kakimzhanova.parser.exception.NullSuccessorException;
+import kz.kakimzhanova.composite.entity.Component;
+import kz.kakimzhanova.composite.entity.Composite;
+import kz.kakimzhanova.composite.entity.CompositeType;
+import kz.kakimzhanova.composite.exception.AddNotSupportedException;
+import kz.kakimzhanova.composite.exception.NullSuccessorException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +20,7 @@ public abstract class AbstractParser {
                 this.successor = successor;
                 this.type = type;
             } else {
-                throw new NullSuccessorException("Got null pointer argument, expected Abstract parser successor");
+                throw new NullSuccessorException("Got null pointer argument, expected Abstract composite successor");
             }
         }catch (NullSuccessorException e){
             logger.log(Level.WARN, e);

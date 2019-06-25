@@ -1,4 +1,4 @@
-package kz.kakimzhanova.parser.util;
+package kz.kakimzhanova.composite.util;
 
 public class IdGenerator {
     private static long leafId = 0;

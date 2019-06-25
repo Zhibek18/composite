@@ -1,7 +1,6 @@
-package kz.kakimzhanova.parser.entity.parser;
+package kz.kakimzhanova.composite.entity.parser;
 
-import kz.kakimzhanova.parser.entity.Component;
-import kz.kakimzhanova.parser.entity.CompositeType;
+import kz.kakimzhanova.composite.entity.CompositeType;
 
 public class TextParser extends AbstractParser {
     public TextParser(AbstractParser successor) {

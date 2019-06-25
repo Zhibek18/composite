@@ -1,11 +1,11 @@
-package kz.kakimzhanova.parser.entity;
+package kz.kakimzhanova.composite.entity;
 
-import kz.kakimzhanova.parser.exception.AddNotSupportedException;
-import kz.kakimzhanova.parser.util.IdGenerator;
+import kz.kakimzhanova.composite.exception.AddNotSupportedException;
+import kz.kakimzhanova.composite.util.IdGenerator;
 
 public class Lexeme implements Component {
     private long id;
-    String str;
+    private String str;
     public Lexeme(String str){
         id = IdGenerator.generateLeafId();
         this.str = str;

@@ -1,6 +1,6 @@
-package kz.kakimzhanova.parser.report;
+package kz.kakimzhanova.composite.report;
 
-import kz.kakimzhanova.parser.entity.Component;
+import kz.kakimzhanova.composite.entity.Component;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

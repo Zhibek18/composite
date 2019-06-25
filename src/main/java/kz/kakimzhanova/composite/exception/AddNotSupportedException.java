@@ -1,4 +1,4 @@
-package kz.kakimzhanova.parser.exception;
+package kz.kakimzhanova.composite.exception;
 
 public class AddNotSupportedException extends Exception {
     public AddNotSupportedException() {

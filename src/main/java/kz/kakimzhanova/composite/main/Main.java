@@ -1,8 +1,8 @@
-package kz.kakimzhanova.parser.main;
+package kz.kakimzhanova.composite.main;
 
-import kz.kakimzhanova.parser.entity.Component;
-import kz.kakimzhanova.parser.entity.parser.*;
-import kz.kakimzhanova.parser.report.Report;
+import kz.kakimzhanova.composite.entity.Component;
+import kz.kakimzhanova.composite.entity.parser.*;
+import kz.kakimzhanova.composite.report.Report;
 
 public class Main {
     public static void main(String[] args) {
