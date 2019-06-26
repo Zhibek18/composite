@@ -49,9 +49,7 @@ public abstract class AbstractParser {
     public abstract String[] parse (String s);
     private static class DefaultParser extends AbstractParser{
         private static DefaultParser defaultParser = new DefaultParser();
-        private DefaultParser() {
-
-        }
+        private DefaultParser() {}
 
         public static DefaultParser getDefaultParser(){
             return defaultParser;
