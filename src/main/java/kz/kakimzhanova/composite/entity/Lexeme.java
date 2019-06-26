@@ -16,6 +16,11 @@ public class Lexeme implements Component {
     public void add(Component component) throws AddNotSupportedException{
         throw new AddNotSupportedException("Add not supported in Lexeme class");
     }
+
+    public String reconstruct() {
+        return str + " ";
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();

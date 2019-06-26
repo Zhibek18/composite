@@ -13,6 +13,7 @@ public class Reader {
         try {
             while ((tmp = br.readLine()) != null ){
                 stringBuilder.append(tmp);
+                stringBuilder.append("\n");
             }
             return stringBuilder.toString();
         }finally {

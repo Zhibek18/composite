@@ -13,10 +13,9 @@ import java.io.IOException;
 public class Main {
     private static Logger logger = LogManager.getLogger();
     public static void main(String[] args) {
-        //String s = "Hello World. \n I am your new king. Bow to me!";
         Reader reader = new Reader();
         try {
-            String s = reader.readText("test.txt");
+            String s = reader.readText("text.txt");
 
             AbstractParser lexemeParser = new LexemeParser();
             AbstractParser sentenceParser = new SentenceParser(lexemeParser);
@@ -26,6 +25,7 @@ public class Main {
             Component component = textParser.chain(s);
             Report report = new Report();
             report.printComponentReport(component);
+            report.printReconstructedText(component);
         }catch (IOException e){
             logger.log(Level.WARN, e);
         }

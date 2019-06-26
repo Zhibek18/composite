@@ -10,4 +10,7 @@ public class Report {
     public void printComponentReport(Component component){
         logger.log(Level.INFO, component);
     }
+    public void printReconstructedText(Component component){
+        logger.log(Level.INFO, "Reconstructed text:\n" + component.reconstruct());
+    }
 }

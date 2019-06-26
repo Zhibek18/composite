@@ -31,6 +31,18 @@ public class Composite implements Component {
         components.remove(i);
     }
 
+    public String reconstruct() {
+        StringBuilder s = new StringBuilder();
+        for (Component component : components){
+            s.append(component.reconstruct());
+        }
+        if (s.length() != 0) {
+            s = new StringBuilder(s.toString().substring(0, s.length() - 1));
+        }
+        s.append(compositeType.getEnd());
+        return s.toString();
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();

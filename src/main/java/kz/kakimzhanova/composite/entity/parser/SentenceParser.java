@@ -9,7 +9,7 @@ public class SentenceParser extends AbstractParser {
     }
 
     public String[] parse (String s){
-        return s.split(" ");
+        return s.split("\\s");
     }
 
 }

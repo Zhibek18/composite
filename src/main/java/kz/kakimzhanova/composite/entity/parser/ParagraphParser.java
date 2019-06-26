@@ -7,7 +7,7 @@ public class ParagraphParser extends AbstractParser {
         super(successor, CompositeType.PARAGRAPH);
     }
     public String[] parse (String s){
-        return s.split("\\.");
+        return s.split("[.!?]");
     }
 
 }

@@ -1,5 +1,14 @@
 package kz.kakimzhanova.composite.entity;
 
 public enum CompositeType {
-    TEXT, PARAGRAPH, SENTENCE, LEXEME
+    TEXT(""), PARAGRAPH("\n"), SENTENCE(". "), LEXEME(" ");
+
+    private String end;
+    CompositeType(String end){
+        this.end = end;
+    }
+
+    public String getEnd() {
+        return end;
+    }
 }
