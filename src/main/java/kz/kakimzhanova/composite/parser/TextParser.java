@@ -1,4 +1,4 @@
-package kz.kakimzhanova.composite.entity.parser;
+package kz.kakimzhanova.composite.parser;
 
 import kz.kakimzhanova.composite.entity.CompositeType;
 import org.apache.logging.log4j.Level;

@@ -3,10 +3,11 @@ package kz.kakimzhanova.composite.entity;
 import kz.kakimzhanova.composite.exception.AddNotSupportedException;
 import kz.kakimzhanova.composite.util.IdGenerator;
 
-public class Lexeme implements Component {
+public class Leaf implements Component {
     private long id;
     private String str;
-    public Lexeme(String str){
+    private LeafType leafType;
+    public Leaf(String str, LeafType leafType){
         id = IdGenerator.generateLeafId();
         this.str = str;
     }
@@ -14,7 +15,7 @@ public class Lexeme implements Component {
         return 1;
     }
     public void add(Component component) throws AddNotSupportedException{
-        throw new AddNotSupportedException("Add not supported in Lexeme class");
+        throw new AddNotSupportedException("Add not supported in Leaf class");
     }
 
     public String reconstruct() {

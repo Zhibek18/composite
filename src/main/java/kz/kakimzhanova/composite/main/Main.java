@@ -1,7 +1,7 @@
 package kz.kakimzhanova.composite.main;
 
 import kz.kakimzhanova.composite.entity.Component;
-import kz.kakimzhanova.composite.entity.parser.*;
+import kz.kakimzhanova.composite.parser.*;
 import kz.kakimzhanova.composite.reader.Reader;
 import kz.kakimzhanova.composite.report.Report;
 import org.apache.logging.log4j.Level;
@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) {
         Reader reader = new Reader();
         try {
-            String s = reader.readText("text.txt");
-
-            AbstractParser lexemeParser = new LexemeParser();
+            String s = reader.readText("test.txt");
+            AbstractParser wordAndSymbolParser = new WordAndSymbolParser();
+            AbstractParser lexemeParser = new LexemeParser(wordAndSymbolParser);
             AbstractParser sentenceParser = new SentenceParser(lexemeParser);
             AbstractParser paragraphParser = new ParagraphParser(sentenceParser);
             AbstractParser textParser = new TextParser(paragraphParser);

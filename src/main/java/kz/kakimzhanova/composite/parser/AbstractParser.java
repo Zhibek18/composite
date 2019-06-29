@@ -1,4 +1,4 @@
-package kz.kakimzhanova.composite.entity.parser;
+package kz.kakimzhanova.composite.parser;
 
 import kz.kakimzhanova.composite.entity.Component;
 import kz.kakimzhanova.composite.entity.Composite;
