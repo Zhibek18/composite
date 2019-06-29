@@ -1,10 +1,11 @@
-package kz.kakimzhanova.composite.parser;
+package kz.kakimzhanova.task.parser;
 
-import kz.kakimzhanova.composite.entity.Component;
-import kz.kakimzhanova.composite.entity.Leaf;
-import kz.kakimzhanova.composite.entity.LeafType;
+import kz.kakimzhanova.task.entity.composite.Component;
+import kz.kakimzhanova.task.entity.composite.Leaf;
+import kz.kakimzhanova.task.entity.composite.LeafType;
 
 public class WordAndSymbolParser extends AbstractParser{
+    private static final String REGEX = "\\w";
     @Override
     public String[] parse(String s) {
         return new String[0];
@@ -12,7 +13,7 @@ public class WordAndSymbolParser extends AbstractParser{
     @Override
     public Component chain(String s){
         LeafType leafType = LeafType.SYMBOL;
-        if (s.matches("\\w")){
+        if (s.matches(REGEX)){
             leafType = LeafType.WORD;
         }
 

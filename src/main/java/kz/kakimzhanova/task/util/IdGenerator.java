@@ -1,4 +1,4 @@
-package kz.kakimzhanova.composite.util;
+package kz.kakimzhanova.task.util;
 
 public class IdGenerator {
     private static long leafId = 0;

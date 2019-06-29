@@ -1,6 +1,6 @@
-package kz.kakimzhanova.composite.entity;
+package kz.kakimzhanova.task.entity.composite;
 
-import kz.kakimzhanova.composite.util.IdGenerator;
+import kz.kakimzhanova.task.util.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

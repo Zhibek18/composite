@@ -1,7 +1,7 @@
-package kz.kakimzhanova.composite.entity;
+package kz.kakimzhanova.task.entity.composite;
 
-import kz.kakimzhanova.composite.exception.AddNotSupportedException;
-import kz.kakimzhanova.composite.util.IdGenerator;
+import kz.kakimzhanova.task.exception.AddNotSupportedException;
+import kz.kakimzhanova.task.util.IdGenerator;
 
 public class Leaf implements Component {
     private long id;

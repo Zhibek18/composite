@@ -1,4 +1,4 @@
-package kz.kakimzhanova.composite.entity;
+package kz.kakimzhanova.task.entity.composite;
 
 public enum CompositeType {
     TEXT(""), PARAGRAPH("\n"), SENTENCE(". "), LEXEME(" ");

@@ -1,4 +1,4 @@
-package kz.kakimzhanova.composite.reader;
+package kz.kakimzhanova.task.reader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

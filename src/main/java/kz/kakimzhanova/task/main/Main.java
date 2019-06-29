@@ -1,9 +1,9 @@
-package kz.kakimzhanova.composite.main;
+package kz.kakimzhanova.task.main;
 
-import kz.kakimzhanova.composite.entity.Component;
-import kz.kakimzhanova.composite.parser.*;
-import kz.kakimzhanova.composite.reader.Reader;
-import kz.kakimzhanova.composite.report.Report;
+import kz.kakimzhanova.task.entity.composite.Component;
+import kz.kakimzhanova.task.parser.*;
+import kz.kakimzhanova.task.reader.Reader;
+import kz.kakimzhanova.task.report.Report;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Reader reader = new Reader();
         try {
-            String s = reader.readText("test.txt");
+            String s = reader.readText("text.txt");
             AbstractParser wordAndSymbolParser = new WordAndSymbolParser();
             AbstractParser lexemeParser = new LexemeParser(wordAndSymbolParser);
             AbstractParser sentenceParser = new SentenceParser(lexemeParser);

@@ -1,6 +1,6 @@
-package kz.kakimzhanova.composite.entity;
+package kz.kakimzhanova.task.entity.composite;
 
-import kz.kakimzhanova.composite.exception.AddNotSupportedException;
+import kz.kakimzhanova.task.exception.AddNotSupportedException;
 
 public interface Component {
     int count();
