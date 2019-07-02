@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class LexemeParser extends AbstractParser {
     Logger logger = LogManager.getLogger();
-    private static final String REGEX = "([\\W&&[^\\s-.?!]]|(\\w+-)+\\w+|\\w+|(-))";
+    private static final String REGEX = "([\\W&&[^\\s-]]|(\\w+-)+\\w+|\\w+|(-))";
     public LexemeParser(AbstractParser successor){
         super(successor, ComponentType.LEXEME);
     }

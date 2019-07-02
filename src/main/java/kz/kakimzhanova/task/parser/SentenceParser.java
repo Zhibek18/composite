@@ -9,7 +9,7 @@ public class SentenceParser extends AbstractParser {
     Logger logger = LogManager.getLogger();
     private static final String REGEX = "\\s";
     public SentenceParser(AbstractParser successor){
-        super(successor, ComponentType.AFFIRMATIVE_SENTENCE);
+        super(successor, ComponentType.SENTENCE);
     }
 
     public String[] parse (String s){

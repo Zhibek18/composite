@@ -2,10 +2,14 @@ package kz.kakimzhanova.task.entity.composite;
 
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.util.IdGenerator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class Leaf implements Component {
+    Logger logger = LogManager.getLogger();
     private long id;
     private String str;
     private ComponentType componentType;
@@ -22,7 +26,7 @@ public class Leaf implements Component {
     }
 
     public String reconstruct() {
-        return str + " ";
+        return str;
     }
 
     @Override
@@ -35,6 +39,8 @@ public class Leaf implements Component {
         StringBuilder s = new StringBuilder();
         s.append("id = ");
         s.append(id);
+        s.append(" type: ");
+        s.append(componentType);
         s.append("\n");
         s.append(str);
         s.append("\n");

@@ -1,6 +1,7 @@
 package kz.kakimzhanova.task.main;
 
 import kz.kakimzhanova.task.entity.composite.Component;
+import kz.kakimzhanova.task.entity.composite.ComponentType;
 import kz.kakimzhanova.task.parser.*;
 import kz.kakimzhanova.task.reader.Reader;
 import kz.kakimzhanova.task.report.Report;

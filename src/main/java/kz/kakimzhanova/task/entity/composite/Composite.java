@@ -35,9 +35,6 @@ public class Composite implements Component {
         for (Component component : components){
             s.append(component.reconstruct());
         }
-        if (s.length() != 0) {
-            s = new StringBuilder(s.toString().substring(0, s.length() - 1));
-        }
         s.append(componentType.getEnd());
         return s.toString();
     }
