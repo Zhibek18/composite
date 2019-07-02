@@ -1,6 +1,6 @@
 package kz.kakimzhanova.task.parser;
 
-import kz.kakimzhanova.task.entity.composite.CompositeType;
+import kz.kakimzhanova.task.entity.composite.ComponentType;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +10,7 @@ public class TextParser extends AbstractParser {
     private static Logger logger = LogManager.getLogger();
     private static final String REGEX = "[.!?]+\n";  
     public TextParser(AbstractParser successor) {
-        super(successor, CompositeType.TEXT);
+        super(successor, ComponentType.TEXT);
     }
 
     public String[] parse (String s){

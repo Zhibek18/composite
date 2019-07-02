@@ -1,25 +1,33 @@
 package kz.kakimzhanova.task.entity.composite;
 
-import kz.kakimzhanova.task.exception.AddNotSupportedException;
+import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.util.IdGenerator;
+
+import java.util.List;
 
 public class Leaf implements Component {
     private long id;
     private String str;
-    private LeafType leafType;
-    public Leaf(String str, LeafType leafType){
+    private ComponentType componentType;
+    public Leaf(String str, ComponentType componentType){
         id = IdGenerator.generateLeafId();
         this.str = str;
+        this.componentType = componentType;
     }
     public int count(){
         return 1;
     }
-    public void add(Component component) throws AddNotSupportedException{
-        throw new AddNotSupportedException("Add not supported in Leaf class");
+    public void add(Component component) throws MethodNotSupportedException {
+        throw new MethodNotSupportedException("Add is not supported in Leaf class");
     }
 
     public String reconstruct() {
         return str + " ";
+    }
+
+    @Override
+    public List<Component> getComponentList() throws MethodNotSupportedException{
+        throw new MethodNotSupportedException("getComponent is not supported in Leaf class");
     }
 
     @Override

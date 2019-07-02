@@ -1,11 +1,11 @@
 package kz.kakimzhanova.task.parser;
 
-import kz.kakimzhanova.task.entity.composite.CompositeType;
+import kz.kakimzhanova.task.entity.composite.ComponentType;
 
 public class ParagraphParser extends AbstractParser {
     private static final String REGEX = "[.!?]";
     public ParagraphParser (AbstractParser successor){
-        super(successor, CompositeType.PARAGRAPH);
+        super(successor, ComponentType.PARAGRAPH);
     }
     public String[] parse (String s){
         s = s.trim().replaceAll("[ ]+"," ");

@@ -2,7 +2,7 @@ package kz.kakimzhanova.task.parser;
 
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.entity.composite.Leaf;
-import kz.kakimzhanova.task.entity.composite.LeafType;
+import kz.kakimzhanova.task.entity.composite.ComponentType;
 
 public class WordAndSymbolParser extends AbstractParser{
     private static final String REGEX = "\\w";
@@ -12,11 +12,11 @@ public class WordAndSymbolParser extends AbstractParser{
     }
     @Override
     public Component chain(String s){
-        LeafType leafType = LeafType.SYMBOL;
+        ComponentType componentType = ComponentType.SYMBOL;
         if (s.matches(REGEX)){
-            leafType = LeafType.WORD;
+            componentType = ComponentType.WORD;
         }
 
-        return new Leaf(s, leafType);
+        return new Leaf(s, componentType);
     }
 }

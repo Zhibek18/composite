@@ -2,8 +2,8 @@ package kz.kakimzhanova.task.parser;
 
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.entity.composite.Composite;
-import kz.kakimzhanova.task.entity.composite.CompositeType;
-import kz.kakimzhanova.task.exception.AddNotSupportedException;
+import kz.kakimzhanova.task.entity.composite.ComponentType;
+import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.exception.NullSuccessorException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -13,8 +13,8 @@ import org.apache.logging.log4j.Logger;
 public abstract class AbstractParser {
     private Logger logger = LogManager.getLogger();
     private AbstractParser successor = DefaultParser.getDefaultParser();
-    private CompositeType type = CompositeType.LEXEME;
-    public AbstractParser(AbstractParser successor, CompositeType type) {
+    private ComponentType type = ComponentType.LEXEME;
+    public AbstractParser(AbstractParser successor, ComponentType type) {
         try {
             if (successor != null) {
                 this.successor = successor;
@@ -41,7 +41,7 @@ public abstract class AbstractParser {
                 tmp = successor.chain(str);
                 component.add(tmp);
             }
-        }catch (AddNotSupportedException e){
+        }catch (MethodNotSupportedException e){
             logger.log(Level.WARN, e);
         }
         return component;
