@@ -1,16 +1,10 @@
 package kz.kakimzhanova.task.parser;
 
 import kz.kakimzhanova.task.entity.composite.ComponentType;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class LexemeParser extends AbstractParser {
-    Logger logger = LogManager.getLogger();
     private static final String REGEX = "([\\W&&[^\\s-]]|(\\w+-)+\\w+|\\w+|(-))";
     public LexemeParser(AbstractParser successor){
         super(successor, ComponentType.LEXEME);
@@ -27,8 +21,6 @@ public class LexemeParser extends AbstractParser {
             stringBuilder.append(" ");
         }
         result = stringBuilder.toString();
-        logger.log(Level.DEBUG, result);
         return result.split(" ");
     }
-
 }

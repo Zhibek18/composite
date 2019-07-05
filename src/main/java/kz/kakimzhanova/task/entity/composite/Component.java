@@ -9,4 +9,6 @@ public interface Component {
     void add(Component component) throws MethodNotSupportedException;
     String reconstruct();
     List <Component> getComponentList() throws MethodNotSupportedException;
+    ComponentType getType();
+    String getString() throws MethodNotSupportedException;
 }

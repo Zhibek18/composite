@@ -1,5 +1,6 @@
 package kz.kakimzhanova.task.entity.composite;
 
+import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.util.IdGenerator;
 
 import java.util.ArrayList;
@@ -8,12 +9,18 @@ import java.util.List;
 
 public class Composite implements Component {
     private long id;
-    private List<Component> components = new ArrayList<Component>();
+    private List<Component> components = new ArrayList<>();
     private ComponentType componentType;
 
     public Composite(ComponentType componentType){
         id = IdGenerator.generateCompositeId();
         this.componentType = componentType;
+    }
+
+    public Composite(ComponentType componentType, List<Component> components){
+        id = IdGenerator.generateCompositeId();
+        this.componentType = componentType;
+        this.components = components;
     }
     public void add(Component component){
         components.add(component);
@@ -37,6 +44,14 @@ public class Composite implements Component {
         }
         s.append(componentType.getEnd());
         return s.toString();
+    }
+    public ComponentType getType(){
+        return componentType;
+    }
+
+    @Override
+    public String getString() throws MethodNotSupportedException {
+        throw new MethodNotSupportedException();
     }
 
     @Override
