@@ -11,17 +11,17 @@ public class ParagraphParser extends AbstractParser {
     }
     @Override
     public String[] parse (String s){
-        s = s.trim().replaceAll("(\n|[ {2,}])"," ");
+        s = s.replaceAll("[ ]+"," ");
         StringBuilder stringBuilder = new StringBuilder();
         String result;
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()){
             stringBuilder.append(matcher.group());
-            stringBuilder.append("\n");
+            stringBuilder.append("#sentenceEnd#");
         }
         result = stringBuilder.toString();
-        return result.split("\n");
+        return result.split("#sentenceEnd#");
     }
 
 }

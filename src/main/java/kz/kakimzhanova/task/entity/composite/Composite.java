@@ -17,11 +17,6 @@ public class Composite implements Component {
         this.componentType = componentType;
     }
 
-    public Composite(ComponentType componentType, List<Component> components){
-        id = IdGenerator.generateCompositeId();
-        this.componentType = componentType;
-        this.components = components;
-    }
     public void add(Component component){
         components.add(component);
     }
@@ -42,7 +37,12 @@ public class Composite implements Component {
         for (Component component : components){
             s.append(component.reconstruct());
         }
-        s.append(componentType.getEnd());
+        if (componentType == ComponentType.PARAGRAPH){
+            s.append("\n");
+        }
+        if (componentType == ComponentType.LEXEME){
+            s.append(" ");
+        }
         return s.toString();
     }
     public ComponentType getType(){
@@ -64,10 +64,10 @@ public class Composite implements Component {
         s.append("\n");
         if (components == null){
             s.append("empty components");
+            return s.toString();
         }
         for (Component component : components) {
             s.append(component);
-            s.append("\n");
         }
         return s.toString();
     }

@@ -9,7 +9,7 @@ public class SentenceParser extends AbstractParser {
     }
 
     public String[] parse (String s){
-        s = s.trim().replaceAll("[ ]+"," ");
+        s = s.replaceAll("[ ]+"," ");
         return s.split(REGEX);
     }
 

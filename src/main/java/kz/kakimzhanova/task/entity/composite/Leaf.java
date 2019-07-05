@@ -6,11 +6,12 @@ import java.util.List;
 
 public class Leaf implements Component {
     private long id;
-    private String str;
+    private String symbols;
     private ComponentType componentType;
-    public Leaf(String str, ComponentType componentType){
+
+    public Leaf(String symbols, ComponentType componentType){
         id = IdGenerator.generateLeafId();
-        this.str = str;
+        this.symbols = symbols;
         this.componentType = componentType;
     }
     public int count(){
@@ -21,13 +22,13 @@ public class Leaf implements Component {
     }
 
     public String reconstruct() {
-        return str;
+        return symbols;
     }
     public ComponentType getType(){
         return componentType;
     }
     public String getString(){
-        return str;
+        return symbols;
     }
     @Override
     public List<Component> getComponentList() throws MethodNotSupportedException{
@@ -42,7 +43,7 @@ public class Leaf implements Component {
         s.append(" type: ");
         s.append(componentType);
         s.append("\n");
-        s.append(str);
+        s.append(symbols);
         s.append("\n");
         return s.toString();
     }

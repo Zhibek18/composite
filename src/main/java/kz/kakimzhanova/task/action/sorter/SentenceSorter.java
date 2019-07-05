@@ -6,7 +6,6 @@ import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +14,6 @@ public class SentenceSorter {
 
     public List<Component> sortSentenceByWordsCount(List<Component> sentences) {
         List<Component> sortedSentences = new ArrayList<>(sentences);
-        WordCounter wordCounter1 = new WordCounter();
-        try {
-            for (Component sentence : sentences) {
-                logger.log(Level.DEBUG, sentence.reconstruct() + "words count: " + wordCounter1.countWords(sentence.getComponentList()));
-            }
-        } catch (MethodNotSupportedException e) {
-            logger.log(Level.WARN, e);
-        }
         sortedSentences.sort((Component firstSentence, Component secondSentence) -> {
             int result = -1;
             try {
