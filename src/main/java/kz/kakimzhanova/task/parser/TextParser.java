@@ -8,6 +8,7 @@ public class TextParser extends AbstractParser {
         super(successor, ComponentType.TEXT);
     }
 
+    @Override
     public String[] parse (String s){
         s = s.replaceAll("[ ]+"," ");
         return s.split(REGEX);

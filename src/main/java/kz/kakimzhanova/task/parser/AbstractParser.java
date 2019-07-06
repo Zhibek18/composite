@@ -4,6 +4,7 @@ import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.entity.composite.Composite;
 import kz.kakimzhanova.task.entity.composite.ComponentType;
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
+import kz.kakimzhanova.task.exception.NullStringArrayException;
 import kz.kakimzhanova.task.exception.NullSuccessorException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -26,19 +27,19 @@ public abstract class AbstractParser {
         }
     }
     public AbstractParser (){}
-    public Component chain (String s){
+    public Component chain (String s) throws NullStringArrayException{
         Component component = new Composite(type);
         String[] parsedStrings = parse(s);
         if (parsedStrings != null){
             try{
-                for (String str : parsedStrings) {
-                    component.add(successor.chain(str));
+                for (String string : parsedStrings) {
+                    component.add(successor.chain(string));
                 }
             }catch (MethodNotSupportedException e) {
                 logger.log(Level.WARN, e);
             }
         } else{
-            logger.log(Level.WARN, "null strings array from parse");
+            throw new NullStringArrayException("Got null strings array from parse");
         }
         return component;
     }
@@ -55,5 +56,4 @@ public abstract class AbstractParser {
             return new String[0];
         }
     }
-
 }

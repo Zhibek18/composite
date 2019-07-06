@@ -5,6 +5,6 @@ import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 
 import java.util.List;
 
-public interface WordsSorter {
-    List<Component> sortWordsByLength(List<Component> lexemes) throws WrongParameterTypeException;
+public interface SentencesSorter {
+    List<Component> sortSentenceByWordsCount(List<Component> sentences) throws WrongParameterTypeException;
 }

@@ -15,21 +15,22 @@ public class Composite implements Component {
         this.componentType = componentType;
     }
 
+    @Override
     public void add(Component component){
         components.add(component);
     }
 
+    @Override
     public int count(){
         return components.size();
     }
-    public void remove(int i){
-        components.remove(i);
-    }
 
+    @Override
     public List<Component> getComponentList(){
         return Collections.unmodifiableList(components);
     }
 
+    @Override
     public String reconstruct() {
         StringBuilder s = new StringBuilder();
         for (Component component : components){
@@ -44,6 +45,7 @@ public class Composite implements Component {
         }
         return s.toString();
     }
+    @Override
     public ComponentType getType(){
         return componentType;
     }

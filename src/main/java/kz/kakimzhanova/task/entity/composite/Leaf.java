@@ -14,13 +14,16 @@ public class Leaf implements Component {
         this.symbols = symbols;
         this.componentType = componentType;
     }
+    @Override
     public int count(){
         return 1;
     }
+    @Override
     public void add(Component component) throws MethodNotSupportedException {
         throw new MethodNotSupportedException("Add is not supported in Leaf class");
     }
 
+    @Override
     public String reconstruct() {
         return symbols;
     }

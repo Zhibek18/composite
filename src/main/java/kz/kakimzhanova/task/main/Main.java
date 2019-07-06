@@ -1,6 +1,7 @@
 package kz.kakimzhanova.task.main;
 
 import kz.kakimzhanova.task.entity.composite.Component;
+import kz.kakimzhanova.task.exception.NullStringArrayException;
 import kz.kakimzhanova.task.parser.*;
 import kz.kakimzhanova.task.reader.Reader;
 import kz.kakimzhanova.task.report.Report;
@@ -23,12 +24,13 @@ public class Main {
 
             Component component = textParser.chain(s);
             Report report = new Report();
+
             report.printComponentReport(component);
             report.printReconstructedText(component);
             report.printSortedParagraphs(component);
             report.printSortedSentences(component);
             report.printSortedWords(component);
-        }catch (IOException e){
+        }catch (IOException |NullStringArrayException e) {
             logger.log(Level.WARN, e);
         }
     }

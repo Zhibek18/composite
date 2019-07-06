@@ -9,9 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
 
-public class WordCounter {
+public class WordsCounterImpl implements WordsCounter{
     private static Logger logger = LogManager.getLogger();
 
+    @Override
     public int countWords(List<Component> lexemes) throws WrongParameterTypeException {
         int count = 0;
         try {
@@ -23,7 +24,7 @@ public class WordCounter {
                         }
                     }
                 } else{
-                    throw new WrongParameterTypeException("List of Lexemes was expected");
+                    throw new WrongParameterTypeException("List of Lexemes was expected, " + lexeme.getType());
                 }
             }
         } catch (MethodNotSupportedException e) {

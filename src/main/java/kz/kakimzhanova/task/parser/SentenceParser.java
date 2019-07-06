@@ -8,8 +8,9 @@ public class SentenceParser extends AbstractParser {
         super(successor, ComponentType.SENTENCE);
     }
 
+    @Override
     public String[] parse (String s){
-        s = s.replaceAll("[ ]+"," ");
+        s = s.trim().replaceAll("[ ]+"," ");
         return s.split(REGEX);
     }
 
