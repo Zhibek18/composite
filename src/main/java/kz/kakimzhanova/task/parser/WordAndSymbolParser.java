@@ -19,7 +19,7 @@ public class WordAndSymbolParser extends AbstractParser{
     }
     @Override
     public Component chain(String s){
-        logger.log(Level.DEBUG, "'"+s+"'");
+        logger.log(Level.DEBUG, "'" + s + "'");
         ComponentType componentType = ComponentType.SYMBOL;
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(s);

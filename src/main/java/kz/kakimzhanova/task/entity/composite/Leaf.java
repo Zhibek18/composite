@@ -27,9 +27,6 @@ public class Leaf implements Component {
     public ComponentType getType(){
         return componentType;
     }
-    public String getString(){
-        return symbols;
-    }
     @Override
     public List<Component> getComponentList() throws MethodNotSupportedException{
         throw new MethodNotSupportedException("getComponent is not supported in Leaf class");

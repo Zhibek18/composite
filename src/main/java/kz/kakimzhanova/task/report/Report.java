@@ -1,19 +1,20 @@
 package kz.kakimzhanova.task.report;
 
+import kz.kakimzhanova.task.action.counter.WordCounter;
 import kz.kakimzhanova.task.action.sorter.SentenceSorter;
 import kz.kakimzhanova.task.action.sorter.WordsSorter;
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.action.sorter.ParagraphSorter;
+import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.List;
 
 public class Report {
     private static Logger logger = LogManager.getLogger();
-    private static final String BORDER = "*******************************************************************************************\n";
+    private static final String BORDER = "**************************************************************************\n";
 
     public void printComponentReport(Component component){
         logger.log(Level.INFO, component);
@@ -26,7 +27,8 @@ public class Report {
             logger.log(Level.INFO, "Paragraphs sorted by sentences count:\n" + BORDER);
             logger.log(Level.INFO, "Sorted paragraphs:");
             for (Component paragraph : sortedParagraphs){
-                logger.log(Level.INFO,  paragraph.getType() +" "+ paragraph.reconstruct());
+                logger.log(Level.INFO,  paragraph.getType() +" sentence count = " + paragraph.count()
+                        + " " + paragraph.reconstruct());
             }
         }catch (MethodNotSupportedException e){
             logger.log(Level.WARN, e);
@@ -42,13 +44,15 @@ public class Report {
                 for (Component sentence : paragraph.getComponentList()) {
                     logger.log(Level.INFO,  sentence.getType() + " " + sentence.reconstruct());
                 }
+                WordCounter wordCounter = new WordCounter();
                 logger.log(Level.INFO, "Sorted sentences:");
                 List<Component> sortedSentences = sentenceSorter.sortSentenceByWordsCount(paragraph.getComponentList());
                 for (Component sentence : sortedSentences) {
-                    logger.log(Level.INFO,  sentence.getType() + " " + sentence.reconstruct());
+                    logger.log(Level.INFO,  sentence.getType() + " words count = "
+                            + wordCounter.countWords(sentence.getComponentList())  + " " +  sentence.reconstruct());
                 }
             }
-        } catch (MethodNotSupportedException e) {
+        } catch (MethodNotSupportedException| WrongParameterTypeException e) {
             logger.log(Level.WARN, e);
         }
     }
@@ -59,7 +63,7 @@ public class Report {
         try{
             for (Component paragraph : text.getComponentList()) {
                 for (Component sentence : paragraph.getComponentList()) {
-                    logger.log(Level.INFO, "TYPE: " + sentence.getType() +" "+ sentence.reconstruct());
+                    logger.log(Level.INFO, sentence.getType() + " " + sentence.reconstruct());
                     logger.log(Level.INFO, "Sorted:");
                     List<Component> sortedWords = wordsSorter.sortWordsByLength(sentence.getComponentList());
                     for (Component word : sortedWords) {
@@ -70,7 +74,6 @@ public class Report {
         } catch (MethodNotSupportedException e) {
             logger.log(Level.WARN, e);
         }
-
     }
     public void printReconstructedText(Component component){
         logger.log(Level.INFO, "Reconstructed text:\n" + BORDER + component.reconstruct());

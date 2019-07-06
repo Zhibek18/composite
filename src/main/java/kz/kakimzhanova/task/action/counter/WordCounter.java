@@ -3,41 +3,32 @@ package kz.kakimzhanova.task.action.counter;
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.entity.composite.ComponentType;
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
+import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.List;
 
 public class WordCounter {
     private static Logger logger = LogManager.getLogger();
 
-    public int countWords(List<Component> lexemes){
+    public int countWords(List<Component> lexemes) throws WrongParameterTypeException {
         int count = 0;
         try {
             for (Component lexeme : lexemes){
-                for (Component leaf : lexeme.getComponentList()) {
-                    if (leaf.getType() == ComponentType.WORD) {
-                        count++;
+                if (lexeme.getType()==ComponentType.LEXEME) {
+                    for (Component leaf : lexeme.getComponentList()) {
+                        if (leaf.getType() == ComponentType.WORD) {
+                            count++;
+                        }
                     }
+                } else{
+                    throw new WrongParameterTypeException("List of Lexemes was expected");
                 }
             }
         } catch (MethodNotSupportedException e) {
             logger.log(Level.WARN, e);
         }
-
         return count;
     }
-    public int countWordLength(Component component){
-        int count = 0;
-        if (component.getType() == ComponentType.WORD){
-            try {
-                count = component.getString().length();
-            } catch (MethodNotSupportedException e) {
-                logger.log(Level.WARN, e);
-            }
-        }
-        return count;
-    }
-
 }

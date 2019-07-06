@@ -1,9 +1,10 @@
 package kz.kakimzhanova.task.action.sorter;
 
+import kz.kakimzhanova.task.action.counter.WordLengthCounter;
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.entity.composite.ComponentType;
-import kz.kakimzhanova.task.action.counter.WordCounter;
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
+import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,11 +27,17 @@ public class WordsSorter {
         }catch (MethodNotSupportedException e) {
             logger.log(Level.WARN, e);
         }
-
         List<Component> sortedWords = new ArrayList<>(words);
         sortedWords.sort((Component firstWord, Component secondWord) -> {
-            WordCounter wordCounter = new WordCounter();
-            return wordCounter.countWordLength(firstWord) - wordCounter.countWordLength(secondWord);
+            WordLengthCounter wordLengthCounter = new WordLengthCounter();
+            int result = -1;
+            try {
+                result =  wordLengthCounter.countWordLength(firstWord)
+                        - wordLengthCounter.countWordLength(secondWord);
+            } catch (WrongParameterTypeException e) {
+                logger.log(Level.WARN, e);
+            }
+            return result;
         });
         return sortedWords;
     }

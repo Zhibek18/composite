@@ -10,5 +10,4 @@ public interface Component {
     String reconstruct();
     List <Component> getComponentList() throws MethodNotSupportedException;
     ComponentType getType();
-    String getString() throws MethodNotSupportedException;
 }

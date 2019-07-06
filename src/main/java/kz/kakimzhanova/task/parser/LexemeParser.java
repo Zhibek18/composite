@@ -11,9 +11,9 @@ public class LexemeParser extends AbstractParser {
     }
     @Override
     public String[] parse (String s) {
-       StringBuilder stringBuilder = new StringBuilder();
-       String result;
-       Pattern pattern = Pattern.compile(REGEX);
+        StringBuilder stringBuilder = new StringBuilder();
+        String result;
+        Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()){
             stringBuilder.append(matcher.group());

@@ -3,6 +3,7 @@ package kz.kakimzhanova.task.action.sorter;
 import kz.kakimzhanova.task.entity.composite.Component;
 import kz.kakimzhanova.task.action.counter.WordCounter;
 import kz.kakimzhanova.task.exception.MethodNotSupportedException;
+import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,8 +19,9 @@ public class SentenceSorter {
             int result = -1;
             try {
                 WordCounter wordCounter = new WordCounter();
-                result = wordCounter.countWords(firstSentence.getComponentList()) - wordCounter.countWords(secondSentence.getComponentList());
-            } catch (MethodNotSupportedException e) {
+                result = wordCounter.countWords(firstSentence.getComponentList())
+                        - wordCounter.countWords(secondSentence.getComponentList());
+            } catch (MethodNotSupportedException| WrongParameterTypeException e) {
                 logger.log(Level.WARN, e);
             }
             return result;

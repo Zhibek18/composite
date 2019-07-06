@@ -6,12 +6,8 @@ import java.util.List;
 
 public class ParagraphSorter {
     public List<Component> sortParagraphBySentenceCount(List<Component> paragraphs){
-            return sortListByCount(paragraphs);
-    }
-
-    private List<Component> sortListByCount(List<Component> components){
-        List<Component> sortedList = new ArrayList<>(components);
-        sortedList.sort(Comparator.comparing(Component::count));
-        return sortedList;
+        List<Component> sortedParagraphs = new ArrayList<>(paragraphs);
+        sortedParagraphs.sort(Comparator.comparing(Component::count));
+        return sortedParagraphs;
     }
 }

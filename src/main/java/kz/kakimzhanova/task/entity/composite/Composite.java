@@ -1,8 +1,6 @@
 package kz.kakimzhanova.task.entity.composite;
 
-import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.util.IdGenerator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,21 +35,17 @@ public class Composite implements Component {
         for (Component component : components){
             s.append(component.reconstruct());
         }
-        if (componentType == ComponentType.PARAGRAPH){
-            s.append("\n");
-        }
-        if (componentType == ComponentType.LEXEME){
-            s.append(" ");
+        switch (componentType){
+            case PARAGRAPH: s.append("\n");
+                            break;
+            case LEXEME:    s.append(" ");
+                            break;
+            default:
         }
         return s.toString();
     }
     public ComponentType getType(){
         return componentType;
-    }
-
-    @Override
-    public String getString() throws MethodNotSupportedException {
-        throw new MethodNotSupportedException();
     }
 
     @Override
