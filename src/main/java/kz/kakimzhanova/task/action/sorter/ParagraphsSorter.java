@@ -6,5 +6,5 @@ import kz.kakimzhanova.task.exception.WrongParameterTypeException;
 import java.util.List;
 
 public interface ParagraphsSorter {
-    List<Component> sortParagraphBySentenceCount(List<Component> paragraphs) throws WrongParameterTypeException;
+    List<Component> sortParagraphBySentencesCount(List<Component> paragraphs) throws WrongParameterTypeException;
 }

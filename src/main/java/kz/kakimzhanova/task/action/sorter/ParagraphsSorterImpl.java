@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ParagraphsSorterImpl implements ParagraphsSorter {
     @Override
-    public List<Component> sortParagraphBySentenceCount(List<Component> paragraphs) throws WrongParameterTypeException{
+    public List<Component> sortParagraphBySentencesCount(List<Component> paragraphs) throws WrongParameterTypeException{
         for (Component paragraph : paragraphs){
             if (paragraph.getType() != ComponentType.PARAGRAPH){
                 throw new WrongParameterTypeException("List of paragraphs expected, got " + paragraph.getType() );

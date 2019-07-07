@@ -1,6 +1,7 @@
 package kz.kakimzhanova.task.main;
 
 import kz.kakimzhanova.task.entity.composite.Component;
+import kz.kakimzhanova.task.exception.MethodNotSupportedException;
 import kz.kakimzhanova.task.exception.NullStringArrayException;
 import kz.kakimzhanova.task.parser.*;
 import kz.kakimzhanova.task.reader.Reader;
@@ -30,7 +31,7 @@ public class Main {
             report.printSortedParagraphs(component);
             report.printSortedSentences(component);
             report.printSortedWords(component);
-        }catch (IOException |NullStringArrayException e) {
+        }catch (IOException |NullStringArrayException | MethodNotSupportedException e) {
             logger.log(Level.WARN, e);
         }
     }

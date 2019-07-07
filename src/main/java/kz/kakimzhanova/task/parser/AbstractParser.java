@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class AbstractParser {
-    private Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
     private AbstractParser successor = DefaultParser.getDefaultParser();
     private ComponentType type;
     public AbstractParser(AbstractParser successor, ComponentType type) {
@@ -27,16 +27,12 @@ public abstract class AbstractParser {
         }
     }
     public AbstractParser (){}
-    public Component chain (String s) throws NullStringArrayException{
+    public Component chain (String s) throws NullStringArrayException, MethodNotSupportedException{
         Component component = new Composite(type);
         String[] parsedStrings = parse(s);
         if (parsedStrings != null){
-            try{
-                for (String string : parsedStrings) {
-                    component.add(successor.chain(string));
-                }
-            }catch (MethodNotSupportedException e) {
-                logger.log(Level.WARN, e);
+            for (String string : parsedStrings) {
+                component.add(successor.chain(string));
             }
         } else{
             throw new NullStringArrayException("Got null strings array from parse");

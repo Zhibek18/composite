@@ -13,17 +13,17 @@ import java.util.List;
 
 public class Report {
     private static Logger logger = LogManager.getLogger();
-    private static final String BORDER = "**************************************************************************\n";
+    private static final String BORDER = "\n**************************************************************************\n";
 
     public void printComponentReport(Component component){
-        logger.log(Level.INFO, component);
+        logger.log(Level.INFO, BORDER + "Component: \n" + component);
     }
 
     public void printSortedParagraphs(Component text){
         ParagraphsSorter paragraphsSorter = new ParagraphsSorterImpl();
         try {
-            List<Component> sortedParagraphs = paragraphsSorter.sortParagraphBySentenceCount(text.getComponentList());
-            logger.log(Level.INFO, "Paragraphs sorted by sentences count:\n" + BORDER);
+            List<Component> sortedParagraphs = paragraphsSorter.sortParagraphBySentencesCount(text.getComponentList());
+            logger.log(Level.INFO, BORDER + "Paragraphs sorted by sentences count:\n");
             logger.log(Level.INFO, "Sorted paragraphs:");
             for (Component paragraph : sortedParagraphs){
                 logger.log(Level.INFO,  paragraph.getType() +" sentence count = " + paragraph.count()
@@ -36,7 +36,7 @@ public class Report {
 
     public void printSortedSentences(Component text){
         SentencesSorter sentencesSorter = new SentencesSorterImpl();
-        logger.log(Level.INFO, "Sentences sorted by words count:\n" + BORDER);
+        logger.log(Level.INFO, BORDER +"Sentences sorted by words count:\n");
         try{
             for (Component paragraph : text.getComponentList()) {
                 logger.log(Level.INFO, "Original: " + paragraph.getType());
@@ -58,7 +58,7 @@ public class Report {
 
     public void printSortedWords(Component text){
         WordsSorter wordsSorter = new WordsSorterImpl();
-        logger.log(Level.INFO, "Words sorted by length:\n" + BORDER);
+        logger.log(Level.INFO, BORDER + "Words sorted by length:\n");
         try{
             for (Component paragraph : text.getComponentList()) {
                 for (Component sentence : paragraph.getComponentList()) {
@@ -75,6 +75,6 @@ public class Report {
         }
     }
     public void printReconstructedText(Component component){
-        logger.log(Level.INFO, "Reconstructed text:\n" + BORDER + component.reconstruct());
+        logger.log(Level.INFO, BORDER + "Reconstructed text:\n" + component.reconstruct());
     }
 }
